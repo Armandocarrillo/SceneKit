@@ -23,11 +23,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        // Show the world origin
+        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         
-        // Set the scene to the view
+        
+        // load Campus
+        loadCampus()
+    }
+    
+    func loadCampus (){
+        //create a new scene
+        let scene = SCNScene(named: "art.scnassers/campus.scn")!
+        // set the scene to the view
         sceneView.scene = scene
+        let node = SCNNode() // add a new node
+        node.position = SCNVector3(0.0 , 0.2, 0.0 ) // add position of node
+        sceneView.scene.rootNode.addChildNode(node)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,4 +84,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
-}
+   // create a new main building in code
+  /*func loadMainBuilding(){
+    let node = SCNNode()
+    let geometry = SCNBox(width: 3.0, height: 1.0, length: 1.0, chamferRadius: 0.0)
+    geometry.firstMaterial?.diffuse.contents = UIColor.brown
+    node.geometry = geometry
+    node.eulerAngles = SCNVector3(-Float.pi / 2, 0.0, 0.0 )
+    let position = SCNVector3(0.0, -0.5, 0.0)
+    node.position = position
+    
+    sceneView.scene.rootNode.addChildNode(node)
+    
+    }*/
+
+ }
