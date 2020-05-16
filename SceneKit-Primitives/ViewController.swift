@@ -84,7 +84,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
-  /*
+  
     // create a new main building in code
   func loadMainBuilding(){
     let node = SCNNode()
@@ -124,5 +124,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         node.position = position
         sceneView.scene.rootNode.addChildNode(node)
     }
- */
+   // create tree trunk
+    func loadTree(){
+        let trunkNode = SCNNode()
+        let trunkGeometry = SCNCylinder(radius: 0.05, height: 0.5)
+        trunkGeometry.firstMaterial?.diffuse.contents = UIColor.brown
+        trunkNode.geometry = trunkGeometry
+        
+        let trunkPosition = SCNVector3(2.0, -0.25, 0.75)
+        trunkNode.position = trunkPosition
+        sceneView.scene.rootNode.addChildNode(trunkNode)
+    }
  }
