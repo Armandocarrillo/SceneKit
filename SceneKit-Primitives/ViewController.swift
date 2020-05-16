@@ -84,18 +84,45 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
-   // create a new main building in code
-  /*func loadMainBuilding(){
+  /*
+    // create a new main building in code
+  func loadMainBuilding(){
     let node = SCNNode()
     let geometry = SCNBox(width: 3.0, height: 1.0, length: 1.0, chamferRadius: 0.0)
     geometry.firstMaterial?.diffuse.contents = UIColor.brown
     node.geometry = geometry
-    node.eulerAngles = SCNVector3(-Float.pi / 2, 0.0, 0.0 )
+    node.eulerAngles = SCNVector3(-Float.pi / 2, 0.0, 0.0 ) // change scale
     let position = SCNVector3(0.0, -0.5, 0.0)
     node.position = position
     
     sceneView.scene.rootNode.addChildNode(node)
     
-    }*/
-
+    }
+// create plane in code
+  func loadSidewalks(){
+    let node = SCNNode()
+    let geometry = SCNPlane(width: 3.5, height: 1.5)
+    geometry.firstMaterial?.diffuse.contents = UIColor.gray
+    geometry.firstMaterial?.isDoubleSided = true
+    node.geometry = geometry
+    node.eulerAngles = SCNVector3(-Float.pi / 2 , 0.0, 0.0)
+    
+    let position = SCNVector3(0.0, -0.5, 0.0)
+    node.position = position
+    
+    sceneView.scene.rootNode.addChildNode(node)
+    }
+    // crete grass plan
+    func loadGrass(){
+        let node = SCNNode()
+        let geometry = SCNPlane(width: 4, height: 2)
+        geometry.firstMaterial?.diffuse.contents = UIColor.green
+        geometry.firstMaterial?.isDoubleSided = true
+        node.eulerAngles.x = -Float.pi / 2
+        node.geometry = geometry
+        let position = SCNVector3 (0.0, -0.501, 0.0)
+        node.position = position
+        sceneView.scene.rootNode.addChildNode(node)
+    }
+ */
  }
