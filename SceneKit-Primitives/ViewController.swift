@@ -26,6 +26,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show the world origin
         sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         
+        sceneView.autoenablesDefaultLighting = true
         
         // load Campus
         loadCampus()
@@ -33,7 +34,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func loadCampus (){
         //create a new scene
-        let scene = SCNScene(named: "art.scnassers/campus.scn")!
+        let scene = SCNScene(named: "art.scnassets/campus.scn")!
         // set the scene to the view
         sceneView.scene = scene
         let node = SCNNode() // add a new node
@@ -84,7 +85,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
-  
+/*
     // create a new main building in code
   func loadMainBuilding(){
     let node = SCNNode()
@@ -134,5 +135,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let trunkPosition = SCNVector3(2.0, -0.25, 0.75)
         trunkNode.position = trunkPosition
         sceneView.scene.rootNode.addChildNode(trunkNode)
+        
+        let crownNode = SCNNode()
+        let crownGeometry = SCNSphere(radius: 0.2)
+        crownGeometry.firstMaterial?.diffuse.contents = UIColor.green
+        crownNode.geometry = crownGeometry
+        
+        let crowPosition = SCNVector3(0.0, 0.25, 0.0)
+        crownNode.position = crowPosition
+        trunkNode.addChildNode(crownNode)
     }
+    */
+
+        
+    
  }
